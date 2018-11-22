@@ -1,0 +1,182 @@
+*, ::before, ::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 300rem;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #111111;
+    color:#aaaaaa;
+}
+body {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+a, a:visited, a:focus, a:hover {
+    color: #FF4E50;
+    text-decoration: none;
+}
+h4 {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.1em;
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+.italic {
+    font-style: italic;
+}
+.full-height {
+    min-height: 100vh;
+    padding: 5rem 0;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.centered {
+    width: 90%;
+    max-width: 600px;
+}
+
+/* Tooltip */
+/* ============================================================ */
+/* ============================================================ */
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(4);
+        -webkit-transform: scale(4);
+        -ms-transform: scale(4);
+    }
+}
+@-webkit-keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(4);
+        -webkit-transform: scale(4);
+        -ms-transform: scale(4);
+    }
+}
+.tooltip {
+    margin: 0 auto;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    background-color: #FF4E50;
+    border-radius: 50%;
+    position: relative;
+}
+.tooltip:after {
+    content: '';
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 4px #FF4E50;
+    -webkit-box-shadow: inset 0 0 4px #FF4E50;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease;
+    animation-name: pulse;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+    -webkit-animation-name: pulse;
+    -webkit-animation-duration: 1.4s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-out;
+}
+.tooltip > i {
+    display: block;
+    font-size: .75rem;
+    line-height: 24px;
+    color: #fff;
+}
+.tooltip-body {
+    z-index: 1;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    padding-top: 1.5rem;
+    cursor: initial;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease 0.4s;
+    -webkit-transition: transition: opacity 0.4s ease, visibility 0.4s ease 0.4s;
+}
+.tooltip-body-inner {
+    position: relative;
+    width: 300px;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    color: #333;
+    font-size: .875rem;
+    line-height: 1.5em;
+    border-radius: 4px;
+    text-align: left;
+    transform: translate(0, 2rem) scale(.9);
+    -webkit-transform: translate(0, 2rem) scale(.9);
+    -ms-transform: translate(0, 2rem) scale(.9);
+    transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease;
+}
+.tooltip-body-inner:before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(45deg);
+    -webkit-transform: translate(-50%, 0) rotate(45deg);
+    -ms-transform: translate(-50%, 0) rotate(45deg);
+}
+/* Hover state */
+.tooltip:hover .tooltip-body, .tooltip.touch-active .tooltip-body {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    -webkit-transition: transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.tooltip:hover .tooltip-body-inner, .tooltip.touch-active .tooltip-body-inner {
+    transform: none;
+    -webkit-transform: none;
+    -ms-transform: none;
+}
+
+/* ============================================================ */
+/* ============================================================ */
